@@ -9,13 +9,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                checkut scm
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t $DOCKER_HUB_USER/$IMAGE_NAME:latest .'
+                sh 'dcker build -t $DOCKER_HUB_USER/$IMAGE_NAME:latest .'
             }
         }
 
@@ -26,8 +26,8 @@ pipeline {
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
-                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                    sh 'docker push $DOCKER_HUB_USER/$IMAGE_NAME:latest'
+                    sh 'echo $DCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                    sh 'docker push $DCKER_HUB_USER/$IMAGE_NAME:latest'
                 }
             }
         }
