@@ -26,7 +26,7 @@ pipeline {
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
-                    sh 'echo $DCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     sh 'docker push $DOCKER_HUB_USER/$IMAGE_NAME:latest'
                 }
             }
