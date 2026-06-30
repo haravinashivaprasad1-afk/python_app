@@ -15,7 +15,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'dcker build -t $DOCKER_HUB_USER/$IMAGE_NAME:latest .'
+                sh 'docker build -t $DOCKER_HUB_USER/$IMAGE_NAME:latest .'
             }
         }
 
